@@ -1,0 +1,898 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HTML - Guião de Formação: Desenvolvimento de
+Aplicação Android com Kotlin </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b4c30af-1e2a-8166-b769-f2782afebfa4" class="page sans"><header><h1 class="page-title">HTML - Guião de Formação: Desenvolvimento de<br/>Aplicação Android com Kotlin </h1><p class="page-description"></p></header><div class="page-body"><h2 id="2b4c30af-1e2a-81e0-a1dc-e5635f8f8e55" class="">Introdução</h2><p id="2b4c30af-1e2a-815b-804f-e6645303ea3f" class="">Neste guião, vamos aprender a criar uma aplicação Android que funciona como um velocímetro. O objetivo não é apenas replicar o código, mas compreender como as diferentes partes se encaixam:</p><ul id="2b4c30af-1e2a-8194-b630-ec5392916be3" class="bulleted-list"><li style="list-style-type:disc"><strong>A Peça Pronta (SpeedometerView)</strong>: O desenho do velocímetro (já fornecida)</li></ul><ul id="2b4c30af-1e2a-813c-b344-d019c3649dce" class="bulleted-list"><li style="list-style-type:disc"><strong>A Montagem (XML):</strong> A construção do ecrã com botões e elementos visuais</li></ul><ul id="2b4c30af-1e2a-8132-a336-e77437497ae2" class="bulleted-list"><li style="list-style-type:disc"><strong>A Lógica (Kotlin):</strong> O código que faz tudo funcionar</li></ul><hr id="2b4c30af-1e2a-819b-bf3a-c5914a1e97ca"/><h2 id="2b4c30af-1e2a-81d5-a54d-ff3fa6ca15e6" class="">Fase 1: Preparação do Projeto</h2><h3 id="2b4c30af-1e2a-8199-aa13-e2b6fedfa31b" class="">Passo 1: Escolher o Molde</h3><p id="2b4c30af-1e2a-8164-80ee-cc8cbd58e8e7" class="">No ecrã &quot;New Project&quot;, vamos garantir que escolhemos o molde certo. </p><ol type="1" id="2b4c30af-1e2a-81e5-876a-f18c30291227" class="numbered-list" start="1"><li>Certifica-te que estás no separador <strong>Phone and Tablet</strong> (no menu da esquerda).</li></ol><ol type="1" id="2b4c30af-1e2a-81f8-a3fd-c6325bf84863" class="numbered-list" start="2"><li>Procura a opção <strong>Empty Views Activity</strong>.</li></ol><figure id="2b4c30af-1e2a-8175-b2cd-e857120abdc0" class="image"><a href="image.png"><img style="width:336px" src="image.png"/></a></figure><hr id="2b4c30af-1e2a-81f3-8483-fde2d8bcbaaa"/><h3 id="2b4c30af-1e2a-8184-992a-e874ba84f5c2" class="">Passo 2: Nomear Projeto</h3><ul id="2b4c30af-1e2a-8153-9523-ed54dc33d4a8" class="bulleted-list"><li style="list-style-type:disc"><strong>Name:</strong> <code>Teste_Velocimetro</code></li></ul><ul id="2b4c30af-1e2a-8157-a70b-da88b7935d06" class="bulleted-list"><li style="list-style-type:disc"><strong>Package name:</strong> <code>com.example.teste_velocimetro</code></li></ul><ul id="2b4c30af-1e2a-81e1-84b4-cfb7bc6d147f" class="bulleted-list"><li style="list-style-type:disc"><strong>Language:</strong> <code>Kotlin</code></li></ul><ul id="2b4c30af-1e2a-8148-aadc-f8d1df3b2482" class="bulleted-list"><li style="list-style-type:disc"><strong>Minimum SDK:</strong> <code>API 26 (Android 8.0)</code></li></ul><figure id="2b4c30af-1e2a-817e-aa42-f91b90c7f3d9" class="image"><a href="image%201.png"><img style="width:512.984375px" src="image%201.png"/></a></figure><p id="2b4c30af-1e2a-810f-be5d-cd2d2ff18973" class="">
+</p><p id="2b4c30af-1e2a-810e-a025-c4da5822326a" class=""><mark class="highlight-red"><strong>Aguarda que o projeto seja carregado. </strong></mark></p><p id="2b4c30af-1e2a-816f-9cdb-cc6b963a56d2" class="">Assim que o projeto terminar de ser carregado, o botão Play (triângulo verde) deve estar verde e clicável. O projeto foi criado com sucesso!<br/><br/>No lado direito do Android Studio, deves ver uma barra lateral com ícones pequenos. Procura um ícone que parece um <strong>telemóvel</strong> e clica nele. (Se passares o rato por cima diz &quot;Device Manager&quot;).</p><hr id="2b4c30af-1e2a-8195-bd1f-cbfe74ab1ae7"/><h3 id="2b4c30af-1e2a-81a4-9de3-f953e5148fd4" class="">Passo 3: Criar um Dispositivo Virtual (Emulador)</h3><p id="2b4c30af-1e2a-8151-adfe-db3365c1394c" class="">Para testar a app, precisamos de um smartphone emulado.</p><ol type="1" id="2b4c30af-1e2a-81b3-bfb8-dfb220c092c0" class="numbered-list" start="1"><li>No lado direito do Android Studio, procura um ícone que parece um telemóvel (diz<br/>&quot;Device Manager&quot; ao passar o rato).</li></ol><figure id="2b4c30af-1e2a-8195-94fd-fae5b7b8a4bb" class="image"><a href="image%202.png"><img style="width:512.96875px" src="image%202.png"/></a></figure><p id="2b4c30af-1e2a-812a-bee1-d2aa44e951c3" class="">2. Clica no botão + (Create Virtual Device).</p><figure id="2b4c30af-1e2a-8184-b3fd-c75ea6d3d4a6" class="image"><a href="bba67d05-0e39-438e-8d12-5850bdeaa6c3.png"><img style="width:511px" src="bba67d05-0e39-438e-8d12-5850bdeaa6c3.png"/></a></figure><p id="2b4c30af-1e2a-818a-b529-c16146888cb2" class=""><strong>Escolher o Hardware:</strong></p><ul id="2b4c30af-1e2a-812a-a603-dce0e26b6d87" class="bulleted-list"><li style="list-style-type:disc">Na lista que aparece (&quot;Select Hardware&quot;), escolhe <strong>Phone</strong> no lado esquerdo.</li></ul><ul id="2b4c30af-1e2a-81c7-a85e-e92605448fc3" class="bulleted-list"><li style="list-style-type:disc">No meio, escolhe <strong>Pixel 9</strong></li></ul><ul id="2b4c30af-1e2a-81b7-b785-d22c11f8581e" class="bulleted-list"><li style="list-style-type:disc">Clica em <strong>Next</strong>.</li></ul><figure id="2b4c30af-1e2a-8104-a662-e261a373e6d8" class="image"><a href="image%203.png"><img style="width:512.984375px" src="image%203.png"/></a></figure><ul id="2b4c30af-1e2a-81f7-a231-f3cae071a364" class="bulleted-list"><li style="list-style-type:disc">Clica em <strong>Finish</strong></li></ul><figure id="2b4c30af-1e2a-81fb-8616-f38c3fa623de" class="image"><a href="image%204.png"><img style="width:720px" src="image%204.png"/></a></figure><p id="2b4c30af-1e2a-814f-9a11-f588945665b8" class="">
+</p><p id="2b4c30af-1e2a-819f-a4cc-c47935bd0c7b" class="">Ao clicar no botão “Play” marcado, temos acesso ao nosso telemóvel emulado</p><figure id="2b4c30af-1e2a-8154-9430-f25fa8bcb486" class="image"><a href="image%205.png"><img style="width:513px" src="image%205.png"/></a></figure><p id="2b4c30af-1e2a-81ce-bb82-c798c5e7f743" class="">Agora vamos dar run ao nosso projeto no telemóvel emulado, clicando no <strong>botão play verde,</strong> que se encontra marcado na imagem.</p><figure id="2b4c30af-1e2a-81e2-ad71-f6de74d56965" class="image"><a href="199803e5-185d-4cc8-9e4b-26cefddc3b1e.png"><img style="width:672px" src="199803e5-185d-4cc8-9e4b-26cefddc3b1e.png"/></a></figure><p id="2b4c30af-1e2a-81a6-8a63-ffbb7ad49dd8" class="">
+</p><p id="2b4c30af-1e2a-8142-b18a-c9fdc0ade700" class=""><strong>Output esperado:</strong></p><figure id="2b4c30af-1e2a-819e-b0b5-e2691a52f484" class="image"><a href="4623acf2-6332-4f33-819e-ca21edb5b095.png"><img style="width:402.7340267459138px" src="4623acf2-6332-4f33-819e-ca21edb5b095.png"/></a></figure><hr id="2b4c30af-1e2a-8132-9e19-ddc343bd2d92"/><h2 id="2b4c30af-1e2a-81ad-a9fb-f2f41c735108" class="">Fase 2: Criar o Velocímetro (SpeedometerView)</h2><p id="2b4c30af-1e2a-815b-a095-f2a91df7bb0c" class="">Agora vamos adicionar a peça pronta do velocímetro. Este é o componente visual que<br/>mostra o velocímetro graficamente.</p><h3 id="2b4c30af-1e2a-81aa-8711-ea0b44c2b1c9" class=""><strong>Passo 1: Criar o Ficheiro</strong></h3><ol type="1" id="2b4c30af-1e2a-81a3-8a34-ce7965804c69" class="numbered-list" start="1"><li>No lado esquerdo do Android Studio, na aba <strong>Project</strong>, procura a pasta <code>app</code> &gt; <code>kotlin + java</code> &gt; <code>com.example.teste_velocimetro</code> (onde já está o <code>MainActivity</code>).</li></ol><ol type="1" id="2b4c30af-1e2a-812c-8ab9-e4c269e38bd2" class="numbered-list" start="2"><li>Clica com o botão direito nessa pasta (<code>com.example...</code>).</li></ol><ol type="1" id="2b4c30af-1e2a-8108-ab88-cde12ee1e813" class="numbered-list" start="3"><li>Vai a <strong>New</strong> &gt; <strong>Kotlin Class/File</strong>.</li></ol><ol type="1" id="2b4c30af-1e2a-817a-ae98-d5ae4b4aa174" class="numbered-list" start="4"><li>Escreve o nome: <code>SpeedometerView</code></li></ol><ol type="1" id="2b4c30af-1e2a-81d5-9c31-e9810c9338f4" class="numbered-list" start="5"><li>Dá <strong>Enter</strong></li></ol><figure id="2b4c30af-1e2a-815a-8ce7-ee1cdfa74196" class="image"><a href="image%206.png"><img style="width:512.984375px" src="image%206.png"/></a></figure><hr id="2b4c30af-1e2a-818a-86f2-ed896d220adb"/><h3 id="2b4c30af-1e2a-8189-9028-d64fb8ab9791" class=""><strong>Passo 2: Colar o Código</strong></h3><p id="2b4c30af-1e2a-81bc-aa9f-f64fdb5ed2f1" class="">O ficheiro vai abrir vazio. Apaga tudo e cola o seguinte código:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2b4c30af-1e2a-811a-ab19-ee428fafcb02" class="code code-wrap"><code class="language-Kotlin" style="white-space:pre-wrap;word-break:break-all">package com.example.teste_velocimetro
+
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import kotlin.math.cos
+import kotlin.math.min
+import kotlin.math.sin
+
+class SpeedometerView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
+
+    // Configuração da velocidade máxima e atual
+    var maxSpeed: Float = 180f
+        set(value) { field = value; invalidate() }
+    var speed: Float = 0f
+        set(value) { field = value.coerceIn(0f, maxSpeed); invalidate() }
+
+    // Tintas para desenhar (Estilo)
+    private val basePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.LTGRAY
+        style = Paint.Style.STROKE
+        strokeWidth = 24f
+        strokeCap = Paint.Cap.ROUND
+    }
+
+    private val progressPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.parseColor(&quot;#2962FF&quot;) // Azul
+        style = Paint.Style.STROKE
+        strokeWidth = 24f
+        strokeCap = Paint.Cap.ROUND
+    }
+
+    private val needlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.DKGRAY
+        style = Paint.Style.STROKE
+        strokeWidth = 6f
+    }
+
+    // O desenho propriamente dito
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        val w = width.toFloat()
+        val h = height.toFloat()
+        val radius = min(w, h) / 2f * 0.9f
+        val cx = w / 2f
+        val cy = h / 2f
+        val rect = RectF(cx - radius, cy - radius, cx + radius, cy + radius)
+
+        // 1. Desenhar o arco cinzento (fundo)
+        canvas.drawArc(rect, 135f, 270f, false, basePaint)
+
+        // 2. Desenhar o arco azul (progresso) baseado na velocidade
+        val sweep = 270f * (speed / maxSpeed)
+        canvas.drawArc(rect, 135f, sweep, false, progressPaint)
+
+        // 3. Desenhar o ponteiro (Matemática para encontrar a ponta da agulha)
+        val angleDeg = 135f + sweep
+        val angleRad = Math.toRadians(angleDeg.toDouble())
+        val needleLen = radius * 0.85f
+        val nx = cx + (cos(angleRad) * needleLen).toFloat()
+        val ny = cy + (sin(angleRad) * needleLen).toFloat()
+        canvas.drawLine(cx, cy, nx, ny, needlePaint)
+    }
+}</code></pre><p id="2b4c30af-1e2a-81e8-bf08-dc1086a84b2c" class=""><strong>Guarda o ficheiro (Ctrl+S).</strong></p><p id="2b4c30af-1e2a-8171-bb0e-ee8d053c222b" class="">Breve explicação do código:<br/>maxSpeed e speed: Variáveis que guardam o valor máximo e atual da velocidade.<br/>Paint: Define como desenhar (cores, estilos, espessura).<br/>onDraw(): O método que desenha tudo no ecrã.</p><ol type="1" id="2b4c30af-1e2a-812e-839e-e0fd6b4b04e1" class="numbered-list" start="1"><li>Desenha um arco cinzento (fundo)</li></ol><ol type="1" id="2b4c30af-1e2a-8160-af6b-f16db6ce1268" class="numbered-list" start="2"><li>Desenha um arco azul (que cresce com a velocidade)</li></ol><ol type="1" id="2b4c30af-1e2a-81f4-b85a-fb1c65743809" class="numbered-list" start="3"><li>Desenha um ponteiro (agulha) que roda</li></ol><hr id="2b4c30af-1e2a-8185-adfb-dbdee95112a8"/><h2 id="2b4c30af-1e2a-8109-9c3c-d0af84981c14" class="">Fase 3: Montar o Ecrã (XML)</h2><p id="2b4c30af-1e2a-8144-b0a5-c0ae1d3a812f" class="">Agora vamos construir o ecrã da aplicação: velocímetro, texto da velocidade e botões.</p><h3 id="2b4c30af-1e2a-810b-9758-d5903d01a329" class="">Passo 1: Abrir o ficheiro XML</h3><p id="2b4c30af-1e2a-81af-898d-f3291341a66a" class="">Agora vamos construir o ecrã da aplicação: velocímetro, texto da velocidade e botões.</p><ol type="1" id="2b4c30af-1e2a-81a9-8474-e89ae8e223af" class="numbered-list" start="1"><li>No lado esquerdo (Project), vai a: <code>app</code> &gt; <code>res</code> &gt; <code>layout</code> &gt; <code>activity_main.xml</code>.</li></ol><figure id="2b4c30af-1e2a-8146-8925-f89f4a4e27e5" class="image"><a href="image%207.png"><img style="width:512.984375px" src="image%207.png"/></a></figure><ol type="1" id="2b4c30af-1e2a-81d2-8e5a-e4bc81579ccf" class="numbered-list" start="1"><li>Quando o ficheiro abrir, olha para o canto superior direito do editor. Deves ver 3 botões: <strong>Design</strong>, <strong>Split</strong>, <strong>Code</strong>.<ul id="2b4c30af-1e2a-8186-ac75-ca986814caaf" class="bulleted-list"><li style="list-style-type:disc">Clica em <strong>Code</strong> (para vermos só o código XML).</li></ul></li></ol><figure id="2b4c30af-1e2a-81cd-a554-fdf4c33c0eed" class="image"><a href="Screenshot_From_2025-11-22_23-19-45.jpg"><img style="width:691.96875px" src="Screenshot_From_2025-11-22_23-19-45.jpg"/></a></figure><ol type="1" id="2b4c30af-1e2a-815d-9d4b-eb2a1e1cd6a5" class="numbered-list" start="2"><li>Apaga <strong>tudo</strong> o que lá estiver.</li></ol><ol type="1" id="2b4c30af-1e2a-818a-9416-f3a0b4400762" class="numbered-list" start="3"><li>Cola este código:</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2b4c30af-1e2a-81c7-9ee0-f6377ea845bf" class="code code-wrap"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:padding=&quot;24dp&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/speedText&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Velocidade: 0 km/h&quot;
+        android:textSize=&quot;24sp&quot;
+        android:textStyle=&quot;bold&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        /&gt;
+
+    &lt;com.example.teste_velocimetro.SpeedometerView
+        android:id=&quot;@+id/speedometerView&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/speedText&quot;
+        app:layout_constraintBottom_toTopOf=&quot;@id/btnAccel&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btnBrake&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Travar&quot;
+        android:backgroundTint=&quot;#D32F2F&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
+        app:layout_constraintWidth_percent=&quot;0.45&quot;
+        /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btnAccel&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Acelerar&quot;
+        android:backgroundTint=&quot;#388E3C&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
+        app:layout_constraintWidth_percent=&quot;0.45&quot;
+        /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre><p id="2b4c30af-1e2a-811d-bee3-f51b540f7f9d" class="">Breve Explicação</p><table id="2b4c30af-1e2a-8160-b85c-c14b324a1dc8" class="simple-table"><tbody><tr id="2b4c30af-1e2a-8191-9c85-d8ab0fa0a09b"><td id="Xwts" class="" style="width:353.5px"><strong>Elemento (ID)</strong></td><td id="?efe" class="" style="width:353.5px"><strong>Função</strong></td></tr><tr id="2b4c30af-1e2a-81fe-bd2e-e99b89538e0f"><td id="Xwts" class="" style="width:353.5px"><strong>TextView</strong><br/>(<code>speedText</code>)</td><td id="?efe" class="" style="width:353.5px">Mostra o valor numérico da velocidade (ex: &quot;0 km/h&quot;).</td></tr><tr id="2b4c30af-1e2a-812a-bd39-e54aef723f39"><td id="Xwts" class="" style="width:353.5px"><strong>SpeedometerView</strong><br/>(<code>speedometerView</code>)</td><td id="?efe" class="" style="width:353.5px">O nosso velocímetro personalizado (o desenho dos arcos).</td></tr><tr id="2b4c30af-1e2a-81ad-a414-df8a68407606"><td id="Xwts" class="" style="width:353.5px"><strong>Button</strong><br/>(<code>btnBrake</code>)</td><td id="?efe" class="" style="width:353.5px">Botão <strong>Travar</strong> (Vermelho). Diminui a velocidade.</td></tr><tr id="2b4c30af-1e2a-814c-8308-d29a17d7dd92"><td id="Xwts" class="" style="width:353.5px"><strong>Button</strong><br/>(<code>btnAccel</code>)</td><td id="?efe" class="" style="width:353.5px">Botão <strong>Acelerar</strong> (Verde). Aumenta a velocidade.</td></tr></tbody></table><hr id="2b4c30af-1e2a-8100-b34c-e07d220576d4"/><h2 id="2b4c30af-1e2a-8180-81ba-fe0034c734fc" class="">Fase 4: Programar a Lógica (MainActivity)</h2><p id="2b4c30af-1e2a-8146-94ce-df7674226432" class="">Agora vamos programar o &quot;cérebro&quot; da app. É aqui que as coisas ganham vida!</p><h3 id="2b4c30af-1e2a-812c-85e8-e5f0431ec1ec" class="">Passo 1: Abrir a MainActivity</h3><p id="2b4c30af-1e2a-812e-9995-cc9a2aecd95a" class="">É aqui que vais gastar mais tempo a explicar aos teus alunos, porque é aqui que a &quot;magia&quot; acontece.</p><ol type="1" id="2b4c30af-1e2a-812f-bb99-e0c79247a904" class="numbered-list" start="1"><li>No lado esquerdo (Project), procura <code>MainActivity.kt</code></li></ol><ol type="1" id="2b4c30af-1e2a-81c0-9c57-ffc1493c8ee6" class="numbered-list" start="2"><li>Apaga todo o código.</li></ol><ol type="1" id="2b4c30af-1e2a-8100-a1c4-f4e3120666f9" class="numbered-list" start="3"><li>Cola este código:</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2b4c30af-1e2a-8122-a256-d6736397bb34" class="code code-wrap"><code class="language-Kotlin" style="white-space:pre-wrap;word-break:break-all">package com.example.teste_velocimetro
+
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    // 1. Declarar as peças que vamos usar
+    private lateinit var speedometerView: SpeedometerView
+    private lateinit var speedText: TextView
+    private lateinit var btnBrake: Button
+    private lateinit var btnAccel: Button
+
+    // Variáveis de estado (como está a mota agora?)
+    private var speed = 0f
+    private val maxSpeed = 180f
+
+    // Coisas técnicas para a animação de desacelerar (Timer)
+    private val handler = Handler(Looper.getMainLooper())
+    private val decelRunnable = object : Runnable {
+        override fun run() {
+            if (speed &gt; 0f) {
+                speed = (speed - 0.5f).coerceAtLeast(0f)
+                updateUI()
+                handler.postDelayed(this, 50L) // Repetir daqui a 50 milisegundos
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // 2. Ligar as variáveis ao XML (Encontrar as peças pelo ID)
+        speedometerView = findViewById(R.id.speedometerView)
+        speedText = findViewById(R.id.speedText)
+        btnBrake = findViewById(R.id.btnBrake)
+        btnAccel = findViewById(R.id.btnAccel)
+
+        // Configurar o velocímetro
+        speedometerView.maxSpeed = maxSpeed
+
+        // 3. O que acontece quando clicamos em &quot;Acelerar&quot;?
+        btnAccel.setOnClickListener {
+            speed = (speed + 10f).coerceAtMost(maxSpeed) // Aumenta 10, mas não passa do máx
+            updateUI()
+            
+            // Se começámos a acelerar, garantimos que a desaceleração está ativa
+            handler.removeCallbacks(decelRunnable)
+            handler.post(decelRunnable)
+        }
+
+        // 4. O que acontece quando clicamos em &quot;Travar&quot;?
+        btnBrake.setOnClickListener {
+            speed = (speed - 15f).coerceAtLeast(0f) // Diminui 15, mas não baixa de 0
+            updateUI()
+        }
+    }
+
+    // Função auxiliar para atualizar o texto e o desenho
+    private fun updateUI() {
+        speedometerView.speed = speed
+        speedText.text = &quot;Velocidade: ${speed.toInt()} km/h&quot;
+    }
+}</code></pre><hr id="2b4c30af-1e2a-8123-b4f4-dfea43e49fdb"/><h2 id="2b4c30af-1e2a-81ec-a28c-fefa14f5cdba" class="">Fase 5: Testar a Aplicação</h2><h3 id="2b4c30af-1e2a-81e8-a5b2-e730c8b41aa9" class="">Executar a App</h3><ol type="1" id="2b4c30af-1e2a-815e-b6cf-ef1185ef5fb0" class="numbered-list" start="1"><li>Clica no botão <strong>Play</strong> (triângulo verde).</li></ol><ol type="1" id="2b4c30af-1e2a-818e-9f12-ef9d73705f2b" class="numbered-list" start="2"><li>A app deve abrir no emulador.</li></ol><h3 id="2b4c30af-1e2a-8104-ad56-f874df39a252" class="">Testar Funcionalidades</h3><ul id="2b4c30af-1e2a-8151-8833-ea220f78affa" class="bulleted-list"><li style="list-style-type:disc"><strong>Botão Acelerar (verde):</strong> Clica várias vezes. A velocidade deve aumentar, o<br/>velocímetro deve evoluir e o texto deve atualizar.</li></ul><ul id="2b4c30af-1e2a-8170-b280-cc6c0fb0d746" class="bulleted-list"><li style="list-style-type:disc"><strong>Botão Travar (vermelho):</strong> Clica para diminuir a velocidade rapidamente.</li></ul><ul id="2b4c30af-1e2a-8140-a9a1-efd0355d5c86" class="bulleted-list"><li style="list-style-type:disc"><strong>Desaceleração Automática:</strong> Sem clicares em nada, a mota deve abrandar<br/>lentamente (cada 50 ms diminui 0.5 km/h).</li></ul><hr id="2b4c30af-1e2a-81bb-9562-da517f143433"/><h2 id="2b4c30af-1e2a-81bf-8a08-d567c95f3c8c" class="">Fase 6: Desafios de Extensão (Avaliação)</h2><p id="2b4c30af-1e2a-8181-a9a7-dd89cda122cb" class=""><strong>Desafio 1: O Limitador de Velocidade 🚦<br/></strong>Objetivo: A velocidade nunca pode passar dos 120 km/h. Se passar, o texto fica vermelho.<br/>Dica: Usar estruturas if/else e setTextColor():<br/><code>if (speed &gt; 120) {<br/>speedText.setTextColor(android.graphics.Color.RED)<br/>} else {<br/>speedText.setTextColor(android.graphics.Color.BLACK)<br/>}</code><br/>Onde adicionar: Dentro da função updateUI().</p><hr id="2b4c30af-1e2a-81cb-b586-ec9707cd3bd8"/><p id="2b4c30af-1e2a-815c-a168-eaabe697773c" class=""><br/><strong>Desafio 2: A Bateria 🔋<br/></strong>Objetivo: Adicionar uma barra de bateria que desce quando acelera.<br/>Passos:</p><ol type="1" id="2b4c30af-1e2a-819d-8ad7-f3df4e35299f" class="numbered-list" start="1"><li>No XML, adiciona um ProgressBar horizontal.</li></ol><ol type="1" id="2b4c30af-1e2a-8197-ac02-e97e965c9671" class="numbered-list" start="2"><li>No Kotlin, cria var fuel = 100.</li></ol><ol type="1" id="2b4c30af-1e2a-81f2-8e78-d4563cfc053b" class="numbered-list" start="3"><li>Quando acelera, diminui o combustível: fuel -= 1.</li></ol><ol type="1" id="2b4c30af-1e2a-8195-b712-df5f6c2f9295" class="numbered-list" start="4"><li>Se fuel &lt;= 0, impede acelerar.</li></ol><hr id="2b4c30af-1e2a-8194-af63-e081a8a321a3"/><p id="2b4c30af-1e2a-8111-aef9-e43392fe2787" class=""><strong>Desafio 3: O Indicador de Mudanças ⚙️<br/></strong>Objetivo: Adicionar seletor de mudanças (N, 1, 2, 3, 4, 5, 6).<br/>Passos:</p><ol type="1" id="2b4c30af-1e2a-81de-9ab9-f27a2df7c696" class="numbered-list" start="1"><li>Cria dois botões: &quot;+&quot; e &quot;-&quot;.</li></ol><ol type="1" id="2b4c30af-1e2a-814a-bdf9-cef5928e080d" class="numbered-list" start="2"><li>Cria uma variável: var gear = 0.</li></ol><ol type="1" id="2b4c30af-1e2a-814f-bf04-c4a3716112fc" class="numbered-list" start="3"><li>Buttons incrementam/decrementam dentro dos limites.</li></ol><ol type="1" id="2b4c30af-1e2a-8134-9363-f9dd03d8779d" class="numbered-list" start="4"><li>Mostra a mudança atual num TextView.</li></ol><hr id="2b4c30af-1e2a-814e-8b3a-cff36b20286f"/><p id="2b4c30af-1e2a-8102-9b2d-fef2bba453ce" class=""><strong>Desafio 4: O Conta-Km 🛣️<br/></strong>Objetivo: Mostrar quilómetros totais percorridos.<br/>Passos:</p><ol type="1" id="2b4c30af-1e2a-81a8-9c51-eb6241312ecc" class="numbered-list" start="1"><li>Cria var distanciaTotal = 0f.</li></ol><ol type="1" id="2b4c30af-1e2a-816a-b509-f89478ff0519" class="numbered-list" start="2"><li>No decelRunnable (que corre a cada 50ms), incrementa: distanciaTotal += speed *<br/>0.001.</li></ol><ol type="1" id="2b4c30af-1e2a-815f-9ab7-d878dd05091f" class="numbered-list" start="3"><li>Mostra num novo TextView.</li></ol><hr id="2b4c30af-1e2a-816f-9f55-f8ad2c16980a"/><p id="2b4c30af-1e2a-81fe-b7b0-c4b16bf9291d" class=""><strong>Desafio 5: O Modo Piscas ↔️<br/></strong>Objetivo: Dois botões que ligam/desligam setas animadas.<br/>Passos:</p><ol type="1" id="2b4c30af-1e2a-8101-b2ff-c785ce72ed7b" class="numbered-list" start="1"><li>Adiciona duas ImageView (setas) no XML com visibility=&quot;invisible&quot;.</li></ol><ol type="1" id="2b4c30af-1e2a-81b1-8ca4-ff45e0bd4cb8" class="numbered-list" start="2"><li>Dois botões (Esquerda/Direita) que mudam a visibilidade.</li></ol><ol type="1" id="2b4c30af-1e2a-819b-8f55-ea669e333061" class="numbered-list" start="3"><li>Usa View.VISIBLE para mostrar e View.INVISIBLE para esconder.</li></ol><hr id="2b4c30af-1e2a-81fa-8f1a-e99b2a4653b2"/><h2 id="2b4c30af-1e2a-8107-a460-cf329df3d699" class="">Notas Importantes</h2><p id="2b4c30af-1e2a-8137-97ef-e9afb521ed9f" class="">Salva regularmente: Usa Ctrl+S frequentemente.<br/>Em caso de erro: Verifica a consola (abaixo) para mensagens de erro.<br/>Copia exatamente: Mesmo um caráter errado pode quebrar o código.<br/>Testa passo a passo: Não deixes tudo para o fim.</p><hr id="2b4c30af-1e2a-81a4-8058-efd76d8abf62"/><h2 id="2b4c30af-1e2a-81aa-8d41-e398636e2f18" class="">Glossário</h2><table id="2b4c30af-1e2a-81ef-82be-e8eca122ee75" class="simple-table"><tbody><tr id="2b4c30af-1e2a-81f3-9525-e89103f1f6dd"><td id="bL\`" class="" style="width:353.5px"><strong>Termo</strong></td><td id="Dk&lt;t" class="" style="width:353.5px"><strong>O que faz (Explicação Simples)</strong></td></tr><tr id="2b4c30af-1e2a-815d-a7e7-e50e5b2bc546"><td id="bL\`" class="" style="width:353.5px"><strong>var</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">Cria uma variável que <strong>pode mudar</strong> de valor.<br/><em>(Ex: a velocidade atual da mota)</em></td></tr><tr id="2b4c30af-1e2a-813e-bddc-f715c9805049"><td id="bL\`" class="" style="width:353.5px"><strong>val</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">Cria um valor <strong>fixo</strong> que nunca muda.<br/><em>(Ex: a velocidade máxima da mota)</em></td></tr><tr id="2b4c30af-1e2a-813c-8280-db4ddc4ce9db"><td id="bL\`" class="" style="width:353.5px"><strong>onCreate()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">É o <strong>ponto de partida</strong>. É o primeiro código a correr quando a aplicação abre.</td></tr><tr id="2b4c30af-1e2a-818d-bf13-fe1d1a6b0752"><td id="bL\`" class="" style="width:353.5px"><strong>findViewById()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px"><strong>Encontra uma peça</strong> visual (botão, texto) no ecrã para a podermos controlar no código.</td></tr><tr id="2b4c30af-1e2a-81a7-9bd5-c2733f890709"><td id="bL\`" class="" style="width:353.5px"><strong>setOnClickListener()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">É o <strong>&quot;ouvido&quot;</strong> do botão. Define o código que vai correr quando o utilizador clica nele.</td></tr><tr id="2b4c30af-1e2a-81a1-8050-d19d29749f3c"><td id="bL\`" class="" style="width:353.5px"><strong>coerceAtMost()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">Funciona como um <strong>Teto</strong>. Garante que um número nunca ultrapassa um limite máximo.<br/><em>(Impede a mota de ir aos 300 km/h)</em></td></tr><tr id="2b4c30af-1e2a-81af-8f4b-dc8553cdae30"><td id="bL\`" class="" style="width:353.5px"><strong>coerceAtLeast()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">Funciona como um <strong>Chão</strong>. Garante que um número nunca desce abaixo de um limite mínimo.<br/><em>(Impede a velocidade de ser negativa)</em></td></tr><tr id="2b4c30af-1e2a-8194-a9ed-e54c399840d5"><td id="bL\`" class="" style="width:353.5px"><strong>Handler</strong></td><td id="Dk&lt;t" class="" style="width:353.5px">É um <strong>Temporizador</strong>. Permite agendar tarefas para acontecerem no futuro (ex: &quot;corre isto daqui a 50 milissegundos&quot;).</td></tr><tr id="2b4c30af-1e2a-81c2-95b9-e76e7c6931e6"><td id="bL\`" class="" style="width:353.5px"><strong>invalidate()</strong></td><td id="Dk&lt;t" class="" style="width:353.5px"><strong>Força um desenho novo</strong>. Avisa o Android que os dados mudaram e que ele precisa de repintar o velocímetro no ecrã.</td></tr></tbody></table><hr id="2b4c30af-1e2a-81da-9df8-f4a6a5c22128"/><h2 id="2b4c30af-1e2a-813e-b506-d5cf322e3c34" class="">Recursos Úteis/Documentação</h2><p id="2b4c30af-1e2a-8104-ad06-df5e6a6372db" class="">Instalação Android Studio: <a href="https://developer.android.com/studio?hl=pt-br">https://developer.android.com/studio?hl=pt-br</a><br/>Documentação Android: <a href="https://developer.android.com/">https://developer.android.com/</a><br/>Kotlin Reference: <a href="https://kotlinlang.org/docs/">https://kotlinlang.org/docs/</a><br/>Android Studio Help: Menu Help &gt; Android Studio Help</p><p id="2b4c30af-1e2a-81a1-904b-c837b4609f15" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
