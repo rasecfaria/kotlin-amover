@@ -1,7 +1,6 @@
 # 🏍️ Formação: Introdução ao Android com Kotlin
 
 Bem-vindos ao repositório de apoio da formação de desenvolvimento Android! 
-Aqui encontrarão todos os materiais necessários para passar do "Zero" até à construção de um **Painel de Instrumentos Digital** funcional.
 
 ## 📂 O que está neste repositório?
 
@@ -55,5 +54,5 @@ Se te esqueceres do que faz cada comando, consulta esta tabela:
 
 ---
 
-**Autor:** [Teu Nome/GitHub]
-*Projeto desenvolvido no âmbito da Bolsa de Investigação [Nome do Projeto/Lab se quiseres]*
+**Autor:** rasec
+*Projeto desenvolvido no âmbito da Bolsa de Investigação A-Mover*
