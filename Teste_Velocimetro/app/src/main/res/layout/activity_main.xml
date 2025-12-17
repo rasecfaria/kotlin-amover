@@ -51,5 +51,20 @@
         app:layout_constraintWidth_percent="0.45"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00E676"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="46dp"
+        android:scaleY="5"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

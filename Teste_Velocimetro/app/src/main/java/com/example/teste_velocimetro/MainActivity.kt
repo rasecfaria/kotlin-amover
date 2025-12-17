@@ -1,11 +1,14 @@
 package com.example.teste_velocimetro
 
+import android.widget.ProgressBar
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var speedText: TextView
     private lateinit var btnBrake: Button
     private lateinit var btnAccel: Button
+    private lateinit var batteryBar: ProgressBar
+    private var battery = 100
+
 
     // Variáveis de estado (como está a mota agora?)
     private var speed = 0f
@@ -40,24 +46,33 @@ class MainActivity : AppCompatActivity() {
         speedText = findViewById(R.id.speedText)
         btnBrake = findViewById(R.id.btnBrake)
         btnAccel = findViewById(R.id.btnAccel)
+        batteryBar = findViewById(R.id.progressBar)
+
 
         // Configurar o velocímetro
         speedometerView.maxSpeed = maxSpeed
 
         // 3. O que acontece quando clicamos em "Acelerar"?
         btnAccel.setOnClickListener {
-            speed = (speed + 8f).coerceAtMost(maxSpeed) // Aumenta 8, mas não passa do máximo
-            updateUI()
+            if (battery > 0){
+                speed = (speed + 8f).coerceAtMost(maxSpeed) // Aumenta 8, mas não passa do máximo
+                battery = (battery - 4).coerceAtLeast(0) // Diminui a bateria em 2, mas não pode ser negativa
+                updateUI()
 
-            // Se começámos a acelerar, paramos a desaceleração automática
-            handler.removeCallbacks(decelRunnable)
-            // E agendamos para começar de novo se o utilizador parar de carregar
-            handler.postDelayed(decelRunnable, 300L)
+                // Se começámos a acelerar, paramos a desaceleração automática
+                handler.removeCallbacks(decelRunnable)
+                // E agendamos para começar de novo se o utilizador parar de carregar
+                handler.postDelayed(decelRunnable, 300L)
+            }
+
+
+
         }
 
         // 4. O que acontece quando clicamos em "Travar"?
         btnBrake.setOnClickListener {
             speed = (speed - 15f).coerceAtLeast(0f) // Diminui 15, mas não baixa de 0
+            battery = (battery + 2).coerceAtMost(100) // Aumenta a bateria em 2, mas não passa de 100
             updateUI()
         }
     }
@@ -79,5 +94,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         speedometerView.speed = speed
         speedText.text = "Velocidade: ${speed.toInt()} km/h"
+
+        batteryBar.progress = battery
+        if (battery == 0)
+        {
+            speedText.setTextColor(Color.RED)
+        } else {
+            speedText.setTextColor(Color.BLACK)
+        }
     }
 }
