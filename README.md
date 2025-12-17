@@ -6,7 +6,7 @@ Bem-vindos ao repositório de apoio da formação de desenvolvimento Android!
 
 * 📄 **`Guiao_de_Formacao...`**: O manual completo em PDF com o passo-a-passo.
 * 🌐 **`Guiao_HTML`**: A versão web do guião (para quem prefere ver no browser).
-* *(Em breve)*: Código base do projeto.
+* Código base do projeto com um dos desafios implementados.
 
 ---
 
